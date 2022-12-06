@@ -1,4 +1,7 @@
 from dash import Dash, dcc, html, Input, Output
+import plotly.express as px
+import pandas as pd
+import random as r
 import os
 
 
@@ -6,21 +9,27 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 
+df = pd.read_csv('test.csv')
+
+def generate_table(dataframe, max_rows=192):
+    return html.Table([
+        html.Thead(
+            html.Tr([html.Th(col) for col in dataframe.columns])
+        ),
+        html.Tbody([
+            html.Tr([
+                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+            ]) for i in range(min(len(dataframe), max_rows))
+        ])
+    ])
+
 server = app.server
 
 app.layout = html.Div([
-    html.H2('Hello World'),
-    dcc.Dropdown(['Plastic', 'Waste', 'Country'],
-        'Plastic',
-        id='dropdown'
-    ),
-    html.Div(id='display-value')
+    html.H4(children= 'Pollution'),
+    generate_table(df)
+    
 ])
-
-@app.callback(Output('display-value', 'children'),
-                [Input('dropdown', 'value')])
-def display_value(value):
-    return f'You have selected {value}'
 
 if __name__ == '__main__':
     app.run_server(debug=True)
