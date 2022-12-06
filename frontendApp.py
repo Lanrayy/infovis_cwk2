@@ -11,6 +11,7 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 df = pd.read_csv('test.csv')
 
+
 def generate_table(dataframe, max_rows=192):
     return html.Table([
         html.Thead(
@@ -23,12 +24,17 @@ def generate_table(dataframe, max_rows=192):
         ])
     ])
 
+
+def generate_bar_chart(df):
+    fig = px.bar(df.head(15), x='Country', y='Pollution')
+    fig.show()
+
+
 server = app.server
 
 app.layout = html.Div([
-    html.H4(children= 'Pollution'),
-    generate_table(df)
-    
+    html.H4(children='Pollution'),
+    generate_bar_chart(df)
 ])
 
 if __name__ == '__main__':
