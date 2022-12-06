@@ -66,7 +66,7 @@ server = app.server
 
 app.layout = html.Div([
     html.H4(children='Pollution'),
-    generate_bar_chart(df)
+    generate_bar_chart(df),
     treemap_develop(df)
 ])
 
