@@ -13,6 +13,7 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv('data_bar.csv')
 questions = ['Largest % Plastic waste in stream', '2nd Smallest % Inadequately managed waste', 'Smallest % Littered waste', 'Largest Waste Generation (kg/day)', '2nd Smallest Plastic waste generation (kg/day)', 'Smallest Inadequately managed plastic waste (kg/day)', '2nd Largest Plastic waste littered (kg/day)', 'Largest Mismanaged plastic waste (kg/pp)', 'Smallest Mismanaged plastic waste in 2010 (tonnes)', '3rd Largest Mismanaged plastic waste in 2025 (tonnes)']
 cols = ['% Plastic waste in stream', '% Inadequately managed waste', '% Littered waste', 'Waste Generation (kg/day)', 'Plastic waste generation (kg/day)', 'Inadequately managed plastic waste (kg/day)', 'Plastic waste littered (kg/day)', 'Mismanaged plastic waste (kg/pp)', 'Mismanaged plastic waste in 2010 (tonnes)', 'Mismanaged plastic waste in 2025 (tonnes)']
+
 def choose_index():
     yes = 1
     selected = []
@@ -50,11 +51,20 @@ def build_QandA():
                     dcc.Graph(figure=make_bar(index)),
                     html.H6(define_question(index)),
                     html.A(
-                        html.Button(children="ENTERPRISE DEMO"),
+                        html.Button(children="Mexico"),
                         href="https://plotly.com/get-demo/",
                     ),
                     html.Button(
-                        children="LEARN MORE", n_clicks=0
+                        children="USA", n_clicks=0
+                    ),
+                    html.Button(
+                        children="Nigeria", n_clicks=0
+                    ),
+                    html.Button(
+                        children="Brazil", n_clicks=0
+                    ),
+                    html.Button(
+                        children="Russia", n_clicks=0
                     )
                 ]
     )
