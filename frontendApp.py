@@ -11,9 +11,35 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 df = pd.read_csv('test.csv')
-# TREEMAP
 
+def build_banner(df):
+    return html.Div(
+        id="banner",
+        children=[
+            html.H5("Plastic Pollution in different Countries"),
+            html.H6("Geographical Map vs Bar Chart"),
+        ],
+    )
+questions = ['this1?', 'this2']
+index = 0
+def define_question(index):
+    return questions[index]
 
+def build_QandA():
+    return html.Div(
+                id="button options",
+                children=[
+                    html.H6(questions[index]),
+                    html.A(
+                        html.Button(children="ENTERPRISE DEMO"),
+                        href="https://plotly.com/get-demo/",
+                    ),
+                    html.Button(
+                        id="learn-more-button", children="LEARN MORE", n_clicks=0
+                    )
+                ]
+    )
+'''
 def treemap_develop(df):
     cols = ['Pollution', 'Density']
     titles = ['Most to least Polluted Countries',
@@ -57,17 +83,26 @@ def generate_table(dataframe, max_rows=192):
     ])
 
 
-def generate_bar_chart(df):
-    fig = px.bar(df.head(15), x='Country', y='Pollution')
-    fig.show()
 
 
+def place_buttons():
+    return html.Div([
+        html.H4("Pollution")])
+
+'''
+fig_bar = px.bar(df.head(15), x='Country', y='Pollution')
 server = app.server
 
+def increment_index(index):
+    index += 1
+
 app.layout = html.Div([
-    html.H4(children='Pollution'),
-    generate_bar_chart(df),
-    treemap_develop(df)
+    build_banner(df),
+    dcc.Graph(figure=fig_bar),
+    build_QandA(),
+    increment_index(index)
+    #generate_bar_chart(df),
+    #treemap_develop(df),
 ])
 
 if __name__ == '__main__':
