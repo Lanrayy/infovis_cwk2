@@ -1,0 +1,193 @@
+﻿Country,Pollution,Density
+Albania,1,500
+Algeria,2,501
+Angola,3,502
+Anguilla,4,503
+Antigua & Barbuda,5,504
+Argentina,6,505
+Aruba,7,506
+Australia,8,507
+Bahamas,9,508
+Bahrain,10,509
+Bangladesh,11,510
+Barbados,12,511
+Belgium,13,512
+Belize,14,513
+Benin,15,514
+Bermuda,16,515
+Bosnia and Herzegovina,17,516
+Brazil,18,517
+British Virgin Islands,19,518
+Brunei,20,519
+Bulgaria,21,520
+Burma/Myanmar,22,521
+Cambodia,23,522
+Cameroon,24,523
+Canada,25,524
+Cape Verde,26,525
+Cayman Islands,27,526
+Channel Islands,28,527
+Chile,29,528
+China,30,529
+Christmas Island,31,530
+Cocos Islands,32,531
+Colombia,33,532
+Comoros,34,533
+Congo Rep of,35,534
+"Congo, Dem rep. of",36,535
+Cook Islands,37,536
+Costa Rica,38,537
+Cote d'Ivoire,39,538
+Croatia,40,539
+Cuba,41,540
+Curacao,42,541
+Cyprus,43,542
+Denmark,44,543
+Dhekelia,45,544
+Djibouti,46,545
+Dominica,47,546
+Dominican Republic,48,547
+East Timor,49,548
+Ecuador,50,549
+Egypt,51,550
+El Salvador,52,551
+Equatorial Guinea,53,552
+Eritrea,54,553
+Estonia,55,554
+Falkland Islands,56,555
+Faroe Islands,57,556
+Fiji,58,557
+Finland,59,558
+France,60,559
+French Guiana,61,560
+French Polynesia,62,561
+Gabon,63,562
+Georgia,64,563
+Germany,65,564
+Ghana,66,565
+Gibraltar,67,566
+Greece,68,567
+Greenland,69,568
+Grenada,70,569
+Guadeloupe,71,570
+Guam,72,571
+Guatemala,73,572
+Guernsey,74,573
+Guinea,75,574
+Guinea-Bissau,76,575
+Guyana,77,576
+Haiti,78,577
+Honduras,79,578
+Hong Kong,80,579
+Iceland,81,580
+India,82,581
+Indonesia,83,582
+Iran,84,583
+Iraq,85,584
+Ireland,86,585
+Isle of Man,87,586
+Israel,88,587
+Italy,89,588
+Jamaica,90,589
+Japan,91,590
+Jersey,92,591
+Jordan,93,592
+Kenya,94,593
+Kiribati,95,594
+"Korea, North",96,595
+"Korea, South (Republic of Korea)",97,596
+Kuwait,98,597
+Latvia,99,598
+Lebanon,100,599
+Liberia,101,600
+Libya,102,601
+Lithuania,103,602
+Macao,104,603
+Madagascar,105,604
+Malaysia,106,605
+Maldives,107,606
+Malta,108,607
+Marshall Islands,109,608
+Martinique,110,609
+Mauritania,111,610
+Mauritius,112,611
+Mexico,113,612
+Micronesia,114,613
+Monaco,115,614
+Montenegro,116,615
+Montserrat,117,616
+Morocco,118,617
+Mozambique,119,618
+Namibia,120,619
+Nauru,121,620
+Netherlands,122,621
+Netherlands Antilles,123,622
+New Caledonia,124,623
+New Zealand,125,624
+Nicaragua,126,625
+Nigeria,127,626
+Niue,128,627
+Norfolk Island,129,628
+Northern Mariana Islands,130,629
+Norway,131,630
+Oman,132,631
+Pakistan,133,632
+Palau,134,633
+Palestine,135,634
+Panama,136,635
+Papua New Guinea,137,636
+Peru,138,637
+Philippines,139,638
+Poland,140,639
+Portugal,141,640
+Puerto Rico,142,641
+Qatar,143,642
+Reunion,144,643
+Romania,145,644
+Russia,146,645
+Saint Helena,147,646
+Saint Kitts and Nevis,148,647
+Saint Lucia,149,648
+"Saint Maarten, DWI",150,649
+Saint Pierre,151,650
+Saint Vincent and the Grenadines,152,651
+Samoa,153,652
+Sao Tome and Principe,154,653
+Saudi Arabia,155,654
+Senegal,156,655
+Seychelles,157,656
+Sierra Leone,158,657
+Singapore,159,658
+Slovenia,160,659
+Solomon Islands,161,660
+Somalia,162,661
+South Africa,163,662
+Spain,164,663
+Sri Lanka,165,664
+Sudan,166,665
+Suriname,167,666
+Svalbard,168,667
+Sweden,169,668
+Syria,170,669
+Taiwan,171,670
+Tanzania,172,671
+Thailand,173,672
+The Gambia,174,673
+Togo,175,674
+Tokelau,176,675
+Tonga,177,676
+Trinidad and Tobago,178,677
+Tunisia,179,678
+Turkey,180,679
+Turks and Caicos Islands,181,680
+Tuvalu,182,681
+Ukraine,183,682
+United Arab Emirates,184,683
+United Kingdom,185,684
+United States,186,685
+Uruguay,187,686
+USVI,188,687
+Vanuatu,189,688
+Venezuela,190,689
+Vietnam,191,690
+Yemen,192,691
