@@ -1,5 +1,6 @@
 from dash import Dash, dcc, html, Input, Output
 import plotly.express as px
+import plotly.graph_objects as go
 import pandas as pd
 import random as r
 import os
@@ -32,41 +33,68 @@ def build_banner(df):
     return html.Div(
         className="banner",
         children=[
-            html.H5("Plastic Pollution in different Countries"),
-            html.H6("Geographical Map vs Bar Chart")
+            html.H4("Plastic Pollution in different Countries - Bar Chart"),
+            #html.H4("Plastic Pollution in different Countries - Chropleth Map"),
+            #html.H6("Geographical Map vs Bar Chart")
         ],
     )
 
 
 def define_question(index):
-    return questions[index]
+    return "Click on the country which has the " + questions[index] + "."
 def make_bar(index):
-    fig_bar = px.bar(df, x=cols[index], y='Country')
+    fig_bar = px.bar(df, x=cols[index], y=('Country'))
+    fig_bar.update_yaxes(showline=True, linewidth=2, linecolor='black',title_standoff=40,titlefont=dict(size=20))
+    fig_bar.update_xaxes(showline=True, linewidth=2, linecolor='black',titlefont=dict(size=20))
     return fig_bar
+
+def make_map(index):
+    fig = go.Figure(data=go.Choropleth(
+        locations = df['Country Codes'],
+        z = df[cols[index]],
+        text = df['Country'],
+        
+        # make the color be spelt wrong to view list of possible colours
+        
+        colorscale = 'darkmint',
+        autocolorscale=False,
+        marker_line_color='darkgray',
+        #colorbar_title = cols[index],
+))
+
+
+    fig.update_layout(
+        title=dict(
+            text=cols[index],
+            x=1,
+            y=0.9,
+            font=dict(size=20),
+            ),
+        geo=dict(
+            #showframe=False,
+            showcoastlines=False,
+            projection_type='equirectangular'
+        )
+    )
+    
+    
+    return fig
+    
+    
+    
+    
+    
+    
+
+
 def build_QandA():
     index = choose_index()
     return html.Div(
                 className="button options",
                 children=[
-                    dcc.Graph(figure=make_bar(index)),
-                    html.H6(define_question(index)),
-                    html.A(
-                        html.Button(children="Mexico"),
-                        href="https://plotly.com/get-demo/",
-                    ),
-                    html.Button(
-                        children="USA", n_clicks=0
-                    ),
-                    html.Button(
-                        children="Nigeria", n_clicks=0
-                    ),
-                    html.Button(
-                        children="Brazil", n_clicks=0
-                    ),
-                    html.Button(
-                        children="Russia", n_clicks=0
-                    )
-                ]
+                    dcc.Graph(figure=make_map(index),style={'width': '80vh', 'height': '80vh'}),
+                    #dcc.Graph(figure=make_bar(index),style={'width': '80vh', 'height': '80vh'}),
+                    html.H6(define_question(index))]
     )
 '''
 def treemap_develop(df):
