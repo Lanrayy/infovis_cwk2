@@ -14,6 +14,16 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv('data_bar.csv')
 questions = ['Largest % Plastic waste in stream', '2nd Smallest % Inadequately managed waste', 'Smallest % Littered waste', 'Largest Waste Generation (kg/day)', '2nd Smallest Plastic waste generation (kg/day)', 'Smallest Inadequately managed plastic waste (kg/day)', '2nd Largest Plastic waste littered (kg/day)', 'Largest Mismanaged plastic waste (kg/pp)', 'Smallest Mismanaged plastic waste in 2010 (tonnes)', '3rd Largest Mismanaged plastic waste in 2025 (tonnes)']
 cols = ['% Plastic waste in stream', '% Inadequately managed waste', '% Littered waste', 'Waste Generation (kg/day)', 'Plastic waste generation (kg/day)', 'Inadequately managed plastic waste (kg/day)', 'Plastic waste littered (kg/day)', 'Mismanaged plastic waste (kg/pp)', 'Mismanaged plastic waste in 2010 (tonnes)', 'Mismanaged plastic waste in 2025 (tonnes)']
+captions =["The graph shows the percentage of plastic waste found in streams over time.",
+"The chart illustrates the percentage of waste that is inadequately managed over time.",
+"This graph displays the percentage of littered waste over time.",
+"The graph shows the daily generation of waste in kilograms.",
+"This chart illustrates the daily generation of plastic waste in kilograms.",
+"The graph displays the daily generation of inadequately managed plastic waste in kilograms.",
+"This chart shows the daily amount of plastic waste that is littered in kilograms.",
+"The graph illustrates the amount of mismanaged plastic waste per person.",
+"This chart displays the total amount of mismanaged plastic waste in 2010 in tonnes.",
+"The graph shows the total amount of mismanaged plastic waste in 2025 in tonnes."]
 
 def choose_index():
     yes = 1
@@ -74,7 +84,15 @@ def make_map(index):
             #showframe=False,
             showcoastlines=False,
             projection_type='equirectangular'
-        )
+        ),
+        annotations=[dict(
+            x=0.5,
+            y=0.2,
+            text=captions[index],
+            showarrow=False
+        )]
+            
+           
     )
     
     
