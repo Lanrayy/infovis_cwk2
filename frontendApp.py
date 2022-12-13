@@ -54,6 +54,16 @@ def define_question(index):
     return "Click on the country which has the " + questions[index] + "."
 def make_bar(index):
     fig_bar = px.bar(df, x=cols[index], y=('Country'))
+    fig_bar.update_layout(margin=dict(l=20, r=20, t=20, b=100))
+    fig_bar.add_annotation(dict(
+                                x=0.45,
+                                y=-0.12,
+                                showarrow=False,
+                                text=captions[index],
+                                textangle=0,
+                                xanchor='center',
+                                xref="paper",
+                                yref="paper"))
     fig_bar.update_yaxes(showline=True, linewidth=2, linecolor='black',title_standoff=40,titlefont=dict(size=20))
     fig_bar.update_xaxes(showline=True, linewidth=2, linecolor='black',titlefont=dict(size=20))
     return fig_bar
@@ -77,7 +87,7 @@ def make_map(index):
         title=dict(
             text=cols[index],
             x=1,
-            y=0.9,
+            yref=0,
             font=dict(size=20),
             ),
         geo=dict(
@@ -110,8 +120,9 @@ def build_QandA():
     return html.Div(
                 className="button options",
                 children=[
-                    dcc.Graph(figure=make_map(index),style={'width': '80vh', 'height': '80vh'}),
-                    #dcc.Graph(figure=make_bar(index),style={'width': '80vh', 'height': '80vh'}),
+                    #dcc.Graph(figure=make_map(index),style={'width': '80vh', 'height': '80vh'}),
+                    dcc.Graph(figure=make_bar(index),style={'width': '80vh', 'height': '80vh'}),
+                    html.Br(),
                     html.H6(define_question(index))]
     )
 '''
@@ -168,6 +179,7 @@ def place_buttons():
 #fig_bar1 = px.bar(df, x='Country', y=cols[index])
 #fig_bar2 = px.bar(df, x='Country', y=cols[index])
 server = app.server
+
 
 
 app.layout = html.Div([
