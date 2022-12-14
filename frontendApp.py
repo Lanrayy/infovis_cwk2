@@ -36,15 +36,16 @@ def choose_index():
                 yes = 0
     if yes == 1:
         selected.append(index)
-    return index
+    return 3
 
 
 def build_banner(df):
     return html.Div(
         className="banner",
         children=[
-            html.H4("Plastic Pollution in different Countries - Bar Chart"),
+            #html.H4("Plastic Pollution in different Countries - Bar Chart"),
             #html.H4("Plastic Pollution in different Countries - Chropleth Map"),
+            html.H4("Plastic Pollution in different Countries - Results"),
             #html.H6("Geographical Map vs Bar Chart")
         ],
     )
@@ -52,9 +53,10 @@ def build_banner(df):
 
 def define_question(index):
     return "Click on the country which has the " + questions[index] + "."
+
 def make_bar(index):
     fig_bar = px.bar(df, x=cols[index], y=('Country'))
-    fig_bar.update_layout(margin=dict(l=20, r=20, t=20, b=100))
+    fig_bar.update_layout(margin=dict(l=20, r=20, t=40, b=100))
     fig_bar.add_annotation(dict(
                                 x=0.45,
                                 y=-0.12,
@@ -109,21 +111,31 @@ def make_map(index):
     return fig
     
     
+def build_results():
+    return "Plastic Pollution in different Countries - Bar Chart" + "Plastic Pollution in different Countries - Chropleth Map"+ "Plastic Pollution in different Countries - Results"+ "Geographical Map vs Bar Chart"
     
-    
-    
-    
-
 
 def build_QandA():
     index = choose_index()
     return html.Div(
-                className="button options",
                 children=[
                     #dcc.Graph(figure=make_map(index),style={'width': '80vh', 'height': '80vh'}),
-                    dcc.Graph(figure=make_bar(index),style={'width': '80vh', 'height': '80vh'}),
-                    html.Br(),
-                    html.H6(define_question(index))]
+                    #dcc.Graph(figure=make_bar(index),style={'width': '80vh', 'height': '80vh'}),
+                    #html.H6(build_results)
+                    #html.Br()
+                    #html.H6(define_question(index))
+                    html.H6("Q1: Choropleth Graph: Correct - 7.9 seconds: Bar Chart: Incorrect - 6.5 seconds"),
+                    html.H6("Q2: Bar Chart: Correct - 4.6 seconds: Choropleth Graph: Correct - 3.6 seconds"),
+                    html.H6("Q3: Choropleth Graph: Correct - 4.9 seconds: Bar Chart: Correct - 5.1 seconds"),
+                    html.H6("Q4: Bar Chart: Incorrect - 11.9 seconds: Choropleth Graph: Correct - 10.5 seconds"),
+                    html.H6("Q5: Choropleth Graph: Correct - 3.2 seconds: Bar Chart: Correct - 5.1 seconds"),
+                    html.H6("Q6: Bar Chart: Correct - 6.6 seconds: Choropleth Graph: Correct - 6.7 seconds"),
+                    html.H6("Q7: Choropleth Graph: Correct - 8.4 seconds: Bar Chart: Correct - 7.3 seconds"),
+                    html.H6("Q8: Bar Chart: Incorrect - 5.0 seconds: Choropleth Graph: Correct - 8.2 seconds"),
+                    html.H6("Q9: Choropleth Graph: Correct - 7.9 seconds: Bar Chart: Correct - 7.3 seconds"),
+                    html.H6("Q10: Bar Chart: Correct - 8.6 seconds: Choropleth Graph: Correct - 7.1 seconds"),
+                    html.H4("Total: 17/20"),
+                    ]
     )
 '''
 def treemap_develop(df):
